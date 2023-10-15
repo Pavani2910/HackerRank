@@ -1,0 +1,45 @@
+/*problem
+One programming language has the following keywords that cannot be used as identifiers:
+break, case, continue, default, defer, else, for, func, goto, if, map, range, return, struct, type, var
+Write a program to find the given word is a keyword or not
+Input Format:
+A string named 'key'
+Constraints: No Constraints
+Output Format:
+'key' is a keyword or 'key' is not a keyword
+Sample Input 0:
+range
+Sample Output 0:
+range is a keyword
+Explanation :
+"range" is a word present in the keywords list, so it cannot be used as an identifier
+Sample Input 1:
+Range
+Sample Output 1:
+Range is not a keyword
+Explanation 1:
+"Range" is not present in the keywords list, since it is differ in it's case
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    char key[10];
+    char *keys[]={"break", "case", "continue", "default", "defer"," else", "for", "func", "goto", "if", "map", "range", "return" ,"struct", "type", "var"};
+    scanf("%s",key);
+    int n=0;
+    for(int i=0;i<16;i++){
+        if(strcmp(key,keys[i])==0){
+            n=1;
+            break;
+        }}
+    if(n)
+        printf("%s is a keyword",key);
+    else
+        printf("%s is not a keyword",key);
+    return 0;
+
+}
