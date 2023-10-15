@@ -1,0 +1,42 @@
+/*Given a maximum of 100 digit number as input, find the difference between the sum of odd and even position digits.
+Input #1:
+4567
+Expected Output:
+2
+Explanation:
+Sum of odd position digits 4 and 6 is 10. Sum of even position digits 5 and 7 is 12 The difference is 12-10=2.
+Input Format:
+An integer, say Num
+Constraints:
+No Constraints
+Output Format:
+An integer, differ
+Sample Input 0:
+4567
+Sample Output 0:
+2
+Explanation 0:
+Sum of odd and even position digits of a number is 2.
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    char a[101];
+    scanf("%s",a);
+    int oddcount=0,evencount=0 ,diff=0;
+    for(int i=0;a[i]!='\0';i++){
+        int digit=a[i]-'0';
+        if(i%2==0)
+            e+=digit;
+        else
+            oddcount+=digit;
+    }
+    diff=abs(evencount-oddcount);
+    printf("%d",diff);    
+    return 0;
+}
+
