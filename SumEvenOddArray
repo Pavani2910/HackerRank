@@ -1,0 +1,62 @@
+/*Problem
+You re required to input the size of the list then the elements of matrix, then you have to divide the main list in two sub lists (even and odd) in such a way that element at 0 index will be considered as even and element at 1st index will be considered as odd and so on. then you have sort the even and odd lists in ascending order then print the sum of second largest number from both the lists.
+Input Format
+First Line, size of the list Second line, elements of the list
+Constraints
+No constraints
+Output Format
+value, sum of the second largest element of both lists.
+Sample Input 0
+5
+3 4 1 7 9
+Sample Output 0
+7
+Explanation 0
+Sorted even array : 1 3 9
+Sorted odd array : 4 7
+Second largest elements of both array: 3 and 4
+Answer: 3 + 4 = 7
+*/
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    // Read the size of the list
+    scanf("%d", &n);
+
+    int even_max = -1;
+    int odd_max = -1;
+    int second_even_max = -1;
+    int second_odd_max = -1;
+
+    // Read the elements of the list and calculate the second largest elements
+    for (int i = 0; i < n; i++) {
+        int num;
+        scanf("%d", &num);
+
+        if (i % 2 == 0) {
+            if (num > even_max) {
+                second_even_max = even_max;
+                even_max = num;
+            } else if (num > second_even_max && num < even_max) {
+                second_even_max = num;
+            }
+        } else {
+            if (num > odd_max) {
+                second_odd_max = odd_max;
+                odd_max = num;
+            } else if (num > second_odd_max && num < odd_max) {
+                second_odd_max = num;
+            }
+        }
+    }
+
+    // Calculate the sum of the second largest elements from both lists
+    int sum = second_even_max + second_odd_max;
+
+    // Print the result
+    printf("%d\n", sum);
+
+    return 0;
+}
