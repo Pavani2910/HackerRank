@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int OperationChoices(int c, int a, int b) {
+    int result;
+
+    if (c == 1) {
+        result = a + b;
+    } else if (c == 2) {
+        result = a - b;
+    } else if (c == 3) {
+        result = a * b;
+    } else if (c == 4) {
+        if (b == 0) {
+            printf("Error: Division by zero is not allowed.\n");
+            return -1; // You can choose to handle the error differently.
+        }
+        result = a / b;
+    } else {
+        printf("Error: Invalid operation choice. Please use 1, 2, 3, or 4.\n");
+        return -1; // You can choose to handle the error differently.
+    }
+
+    return result;
+}
+
+int main() {
+    int c, a, b;
+
+    // Read inputs
+    scanf("%d", &c);
+    scanf("%d", &a);
+    scanf("%d", &b);
+
+    int result = OperationChoices(c, a, b);
+
+    if (result != -1) {
+        // Print the result
+        printf("%d\n", result);
+    }
+
+    return 0;
+}
